@@ -32,7 +32,7 @@
                 "phpactor.enable": {
                     "type": "boolean",
                     "default": true,
-                    "description": "is enable php lsp"
+                    "description": "enable phpactor language server"
                 }
             }
         }

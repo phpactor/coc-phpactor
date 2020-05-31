@@ -3,41 +3,48 @@ import {
     LanguageClient,
     ServerOptions,
     workspace,
-    TransportKind,
     LanguageClientOptions,
+    commands
 } from "coc.nvim";
 
 const LanguageID = 'php';
 
 let languageClient: LanguageClient;
-let file: string;
 
 export async function activate(context: ExtensionContext): Promise<void> {
-    let c = workspace.getConfiguration();
-    const config = c.get("phpactor") as any;
+    let workspaceConfig = workspace.getConfiguration();
+    const config = workspaceConfig.get("phpactor") as any;
     const enable = config.enable;
 
     if (enable === false) return;
 
-    languageClient = createClient(context);
+    languageClient = createClient(config);
 
     languageClient.start();
 }
 
-function createClient(context: ExtensionContext): LanguageClient {
+function createClient(config: any): LanguageClient {
+    if (!config.path) {
+        workspace.showMessage(
+            "Configure `phpactor.path` with path to Phpactor (e.g. phpactor, or /path/to/phpactor)",
+            "error"
+        );
+        return;
+    }
     let serverOptions: ServerOptions = {
         run: {
-            command: "phpactor"
+            command: config.path,
+            args: [
+                "language-server"
+            ]
         },
         debug: {
-            command: "phpactor"
+            command: "phpactor",
+            args: [
+                "language-server"
+            ]
         },
     };
-
-    // todo: implements createMiddleware method
-    // let middleware = createMiddleware(() => {
-    // 	return languageClient;
-    // });
 
     let clientOptions: LanguageClientOptions = {
         documentSelector: [
@@ -55,5 +62,42 @@ function createClient(context: ExtensionContext): LanguageClient {
         clientOptions
     );
 
+    commands.registerCommand('phpactor.reindex', reindex);
+    commands.registerCommand('phpactor.config.dump', dumpConfig);
+    commands.registerCommand('phpactor.services.list', servicesList);
+    commands.registerCommand('phpactor.status', status);
+
     return languageClient;
+}
+
+function reindex(): void {
+	if(!languageClient) {
+		return;
+    }
+
+    languageClient.sendRequest('indexer/reindex');
+}
+
+function dumpConfig(): void {
+	if(!languageClient) {
+		return;
+    }
+
+    languageClient.sendRequest('session/dumpConfig');
+}
+
+function servicesList(): void {
+	if(!languageClient) {
+		return;
+    }
+
+    languageClient.sendRequest('service/running');
+}
+
+function status(): void {
+	if(!languageClient) {
+		return;
+    }
+
+    languageClient.sendRequest('system/status');
 }

@@ -641,7 +641,7 @@ cliui@^5.0.0:
     strip-ansi "^5.2.0"
     wrap-ansi "^5.1.0"
 
-coc.nvim@^0.0.78:
+coc.nvim@^0.0.77:
   version "0.0.77"
   resolved "https://registry.yarnpkg.com/coc.nvim/-/coc.nvim-0.0.77.tgz#537ee43fb0f4b40e6c07ad239a30677e274a9ad9"
   integrity sha512-wwn3ca7iMKuH/a6NAV7HL95xkEK5DzrKJ1dWGKBs+HZHFLhzXVYhjA0RL8x8Xf62TBEQGhH1wlKtBxkluGd1oQ==
