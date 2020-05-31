@@ -36,4 +36,4 @@ Commands
 Documentation
 -------------
 
-For full documentation see [the docs](https://phpactor.readthedocs.io/en).
+For full documentation see [the docs](https://phpactor.readthedocs.io/en/master/index.html).
