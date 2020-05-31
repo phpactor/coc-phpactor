@@ -33,6 +33,11 @@
                     "type": "boolean",
                     "default": true,
                     "description": "enable phpactor language server"
+                },
+                "phpactor.config": {
+                    "type": "any",
+                    "default": {},
+                    "description": "standard phpactor configuration"
                 }
             }
         }

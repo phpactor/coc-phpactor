@@ -51,8 +51,7 @@ function createClient(config: any): LanguageClient {
             { language: LanguageID, scheme: 'file' },
             { language: LanguageID, scheme: 'untitled' }
         ],
-        initializationOptions: {
-        },
+        initializationOptions: config.config
     };
 
     languageClient = new LanguageClient(
