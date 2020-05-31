@@ -26,8 +26,8 @@
             "properties": {
                 "phpactor.path": {
                     "type": "string",
-                    "default": "",
-                    "description": "phpactor server path"
+                    "default": "phpactor",
+                    "description": "phpactor bin path"
                 },
                 "phpactor.enable": {
                     "type": "boolean",
