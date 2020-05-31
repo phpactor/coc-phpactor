@@ -2,7 +2,7 @@
     "name": "coc-phpactor",
     "version": "1.0.0",
     "description": "Phpactor PHP Language Server extension for coc.nvim",
-    "main": "lib/index.js",
+    "main": "lib/extension.js",
     "publisher": "dantleech",
     "engines": {
         "coc": "^0.0.66"
