@@ -29,6 +29,17 @@
                     "default": "phpactor",
                     "description": "phpactor bin path"
                 },
+                "phpactor.revealOutputChannelOn": {
+                    "type": "string",
+                    "enum": [
+                        "info",
+                        "warn",
+                        "error",
+                        "never"
+                    ],
+                    "default": "never",
+                    "description": "Specifies message severity on which the output channel will be revealed."
+                },
                 "phpactor.enable": {
                     "type": "boolean",
                     "default": true,

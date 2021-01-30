@@ -4,7 +4,8 @@ import {
     ServerOptions,
     workspace,
     LanguageClientOptions,
-    commands
+    commands,
+    RevealOutputChannelOn
 } from "coc.nvim";
 
 const LanguageID = 'php';
@@ -51,6 +52,7 @@ function createClient(config: any): LanguageClient {
             { language: LanguageID, scheme: 'file' },
             { language: LanguageID, scheme: 'untitled' }
         ],
+        revealOutputChannelOn: fromStringToRevealOutputChannelOn(config.revealOutputChannelOn),
         initializationOptions: config.config
     };
 
@@ -99,4 +101,18 @@ function status(): void {
     }
 
     languageClient.sendRequest('system/status');
+}
+
+function fromStringToRevealOutputChannelOn(value: string): RevealOutputChannelOn {
+  switch (value && value.toLowerCase()) {
+    case 'info':
+      return RevealOutputChannelOn.Info
+    case 'warn':
+      return RevealOutputChannelOn.Warn
+    case 'error':
+      return RevealOutputChannelOn.Error
+    case 'never':
+    default:
+      return RevealOutputChannelOn.Never
+  }
 }
