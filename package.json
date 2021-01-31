@@ -40,6 +40,16 @@
                     "default": "never",
                     "description": "Specifies message severity on which the output channel will be revealed."
                 },
+                "phpactor.trace.server": {
+                    "type": "string",
+                    "default": "off",
+                    "enum": [
+                        "off",
+                        "messages",
+                        "verbose"
+                    ],
+                    "description": "Trace level for Phpactor"
+                },
                 "phpactor.enable": {
                     "type": "boolean",
                     "default": true,
