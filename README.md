@@ -9,7 +9,7 @@ with [CoC](https://github.com/neoclide/coc.nvim).
 Installation
 ------------
 
-First, install [Phpactor](https://phpactor.readthedocs.io/en/develop/usage/standalone.html).
+First, install [Phpactor](https://phpactor.readthedocs.io/en/master/usage/standalone.html).
 
 Then install this extension from Vim/Nvim:
 
@@ -18,12 +18,12 @@ Then install this extension from Vim/Nvim:
 ```
 
 **NOTE**: The Phpactor language server is a work-in-progress (see currently
-[supported](https://phpactor.readthedocs.io/en/develop/lsp/support.html)
+[supported](https://phpactor.readthedocs.io/en/master/lsp/support.html)
 features). 
 
 In order to have access to all of Phpactors functionality it is recommended to
 install the standard [VIM
-Plugin](https://phpactor.readthedocs.io/en/develop/usage/vim-plugin.html).
+Plugin](https://phpactor.readthedocs.io/en/master/usage/vim-plugin.html).
 
 Commands
 --------
@@ -37,7 +37,7 @@ Configuration
 -------------
 
 You can add any Phpactor
-[configuration](https://phpactor.readthedocs.io/en/develop/reference/configuration.html)
+[configuration](https://phpactor.readthedocs.io/en/master/reference/configuration.html)
 using the `phpactor.config` key in `:CocConfig`.
 
 Documentation
